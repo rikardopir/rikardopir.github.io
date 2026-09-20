@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="麦格雷迪(T-Mac)官方网站。全面收录麦格雷迪职业生涯高光集锦、NBA历史地位分析、技术特点详解及经典比赛回顾。">
+    <meta name="keywords" content="麦格雷迪, T-Mac, 麦迪, 篮球, NBA, 火箭队, 麦迪时刻, 篮球明星">
+    <title>麦格雷迪-传奇球星生涯高光与技术解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d32f2f; /* NBA Red */
+            --secondary-color: #212121; /* Dark Grey */
+            --accent-color: #ffb74d; /* Orange/Gold */
+            --bg-color: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0 var(--spacing-unit);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/tmachero/1600/900');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 32px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Main Layout */
+        main {
+            flex: 1;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            width: 100%;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 48px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        /* Featured Cards */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: #ddd;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex: 1;
+        }
+
+        .card-link {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .ranking-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ranking-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            background: var(--secondary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .rank-num.top-3 {
+            background: var(--accent-color);
+        }
+
+        /* Bio Section */
+        .bio-container {
+            display: flex;
+            gap: 32px;
+            align-items: flex-start;
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .bio-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 4px solid var(--bg-color);
+        }
+
+        .bio-text h3 {
+            margin-bottom: 16px;
+            color: var(--secondary-color);
+        }
+
+        .bio-text p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 12px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            line-height: 1.6;
+            border-top: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #999;
+            padding: 40px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            main { grid-template-columns: 1fr; }
+            .bio-container { flex-direction: column; align-items: center; text-align: center; }
+            .nav-container { flex-direction: column; height: auto; padding: 10px 0; }
+            nav ul { margin-top: 10px; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <span>TMAC</span> LEGEND
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#highlights">生涯高光</a></li>
+                    <li><a href="#stats">数据统计</a></li>
+                    <li><a href="#memories">经典时刻</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>麦格雷迪</h1>
+        <p>从天赋异禀的得分机器到火箭队的历史传奇，探索T-Mac的篮球艺术与不朽时刻。</p>
+        <a href="#highlights" class="btn">观看经典集锦</a>
+    </section>
+
+    <main>
+        <!-- Main Content Area -->
+        <div class="content-area">
+            
+            <!-- Biography Section -->
+            <section id="bio">
+                <div class="section-header">
+                    <h2 class="section-title">关于麦迪</h2>
+                </div>
+                <div class="bio-container">
+                    <img src="https://picsum.photos/seed/tmacface/400/400" alt="麦格雷迪肖像" class="bio-img">
+                    <div class="bio-text">
+                        <h3>特雷西·麦克格雷迪</h3>
+                        <p>特雷西·麦克格雷迪，绰号“T-Mac”，是NBA历史上最伟大的得分后卫之一。他以其无与伦比的篮球天赋、柔和的投篮手感和令人窒息的突破能力闻名于世。职业生涯中，他两次荣膺NBA得分王，并入选15次全明星阵容。2003年12月9日对阵马刺队的“麦迪时刻”，更是被公认为NBA历史上最不可思议的个人表演之一。</p>
+                        <p>尽管因伤病困扰，他的巅峰期相对短暂，但他留下的华丽球风和关键时刻的巨星表现，永远铭刻在球迷心中。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Highlights Section -->
+            <section id="highlights">
+                <div class="section-header">
+                    <h2 class="section-title">生涯高光时刻</h2>
+                    <a href="#" class="card-link">查看全部 &rarr;</a>
+                </div>
+                <div class="highlight-grid">
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/moments1/600/400" alt="麦迪时刻集锦">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">经典战役</span>
+                            <h3 class="card-title">麦迪时刻：35秒13分</h3>
+                            <p class="card-desc">2003年12月9日，麦迪在比赛最后35秒连得13分，包括一个压哨三分绝杀，创造了NBA历史上最伟大的个人表演之一。</p>
+                            <a href="#" class="card-link">重温经典</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/moments2/600/400" alt="麦迪35秒13分">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">技术分析</span>
+                            <h3 class="card-title">干拔跳投的艺术</h3>
+                            <p class="card-desc">深入解析麦迪标志性的无球跑动和干拔跳投，了解他如何利用身高和臂展优势在防守者头顶得分。</p>
+                            <a href="#" class="card-link">阅读分析</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-img">
+                            <img src="https://picsum.photos/seed/moments3/600/400" alt="麦迪全明星">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">荣誉殿堂</span>
+                            <h3 class="card-title">全明星舞台</h3>
+                            <p class="card-desc">回顾麦迪在全明星赛上的精彩表现，特别是2003年全明星MVP的华丽演出。</p>
+                            <a href="#" class="card-link">浏览集锦</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">麦迪和科比谁更强？</div>
+                        <div class="faq-answer">这是一个球迷之间永恒的话题。科比以极致的勤奋和防守著称，而麦迪则拥有更极致的天赋和进攻手段。两人都是历史级别的得分手，风格迥异，难以简单比较。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">麦迪为什么被称为T-Mac？</div>
+                        <div class="faq-answer">T-Mac是McGrady的昵称简称，源于名字McGrady的前三个字母和最后一个字母的组合。这个绰号简洁有力，便于球迷呼喊，逐渐取代了他的全名成为公众认知。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">麦迪时刻是哪一年发生的？</div>
+                        <div class="faq-answer">麦迪时刻发生在2003年12月9日，当时效力休斯顿火箭队。</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Sidebar Area -->
+        <aside>
+            <!-- Stats Widget -->
+            <div id="stats" class="sidebar-widget">
+                <h3 style="margin-bottom:20px; font-size:1.2rem;">生涯核心数据</h3>
+                <div class="stat-row">
+                    <span class="stat-label">生涯场均得分</span>
+                    <span class="stat-value">19.6</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">生涯场均助攻</span>
+                    <span class="stat-value">5.6</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">全明星次数</span>
+                    <span class="stat-value">7次</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">得分王次数</span>
+                    <span class="stat-value">2次</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">最佳阵容</span>
+                    <span class="stat-value">7次</span>
+                </div>
+            </div>
+
+            <!-- Rankings Widget -->
+            <div class="sidebar-widget">
+                <h3 style="margin-bottom:20px; font-size:1.2rem;">历史最佳小前锋排行</h3>
+                <ul class="ranking-list">
+                    <li>
+                        <span class="rank-num top-3">1</span>
+                        <span>勒布朗·詹姆斯</span>
+                    </li>
+                    <li>
+                        <span class="rank-num top-3">2</span>
+                        <span>伯德</span>
+                    </li>
+                    <li>
+                        <span class="rank-num top-3">3</span>
+                        <span>麦格雷迪</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <span>皮蓬</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <span>杜兰特</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Newsletter / Ad Placeholder -->
+            <div class="sidebar-widget" style="background: #fff8e1; border: 1px solid #ffe082;">
+                <h3 style="margin-bottom:10px; font-size:1.1rem;">加入篮球社区</h3>
+                <p style="font-size:0.9rem; margin-bottom:15px; color:#666;">获取最新的球星资讯和深度分析。</p>
+                <button class="btn" style="width:100%; font-size:0.9rem; padding:10px;">订阅更新</button>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>TMAC LEGEND</h4>
+                <p>致敬篮球史上最伟大的天赋之一。本站致力于整理麦迪的职业生涯资料、技术分析及球迷回忆。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#bio">球员简介</a></li>
+                    <li><a href="#highlights">高光时刻</a></li>
+                    <li><a href="#stats">数据统计</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>相关链接</h4>
+                <ul>
+                    <li><a href="#">NBA官网</a></li>
+                    <li><a href="#">休斯顿火箭队</a></li>
+                    <li><a href="#">篮球百科</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 麦迪球迷纪念站. All rights reserved. 本站为非商业性质粉丝整理网站.
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
