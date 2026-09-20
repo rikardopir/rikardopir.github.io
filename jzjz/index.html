@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jzjzjz日本人 - 日本文化深度探索与资讯平台</title>
+    <meta name="description" content="jzjzjz日本人 - 提供深度的日本文化、社会现象、生活方式及历史背景的资讯平台。致力于还原真实的日本面貌，涵盖传统与现代的多元视角。">
+    <meta name="keywords" content="jzjzjz日本人, 日本文化, 日本社会, 日本生活方式, 日本旅游, 日本历史">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .hero-btn:hover {
+            background-color: #a93226;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: -40px;
+            padding-bottom: 60px;
+        }
+
+        /* Article Cards */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+            transition: transform 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .article-content {
+            padding: 24px;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .hot-list {
+            list-style: none;
+        }
+
+        .hot-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hot-list a {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+        }
+
+        .hot-rank {
+            background: var(--accent-color);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .category-item {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s;
+        }
+
+        .category-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #95a5a6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none; /* JS toggle would be needed for full mobile menu, keeping simple for now */
+            }
+            
+            nav.mobile-active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">jzjzjz<span>日本人</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">文化解读</a></li>
+                    <li><a href="#">社会观察</a></li>
+                    <li><a href="#">生活指南</a></li>
+                    <li><a href="#">历史脉络</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>探索 jzjzjz日本人：真实与多元的视角</h1>
+                <p>我们致力于为您呈现最客观、最深入的日本文化与社会现象分析，从传统礼仪到现代生活方式，带您全方位了解日本。</p>
+                <a href="#" class="hero-btn">开始探索</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="main-grid">
+                <!-- Content Column -->
+                <section class="content-area">
+                    <div class="section-title">深度阅读</div>
+                    
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/japan1/800/400" alt="日本传统建筑与樱花" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>文化解读</span>
+                                <span>•</span>
+                                <span>2023-10-24</span>
+                            </div>
+                            <h2 class="article-title">日本传统美学中的“侘寂”与极简主义</h2>
+                            <p class="article-excerpt">在日本人的审美体系中，侘寂并非单纯的破败，而是一种对无常和残缺的深刻接纳。这种哲学如何影响了现代日本的设计与生活态度？</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/japan2/800/400" alt="日本现代都市夜景" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>社会观察</span>
+                                <span>•</span>
+                                <span>2023-10-22</span>
+                            </div>
+                            <h2 class="article-title">都市里的孤独感：现代日本人的社交现状</h2>
+                            <p class="article-excerpt">随着少子老龄化社会的到来，日本的“孤独死”现象日益受到关注。深入探讨这一社会现象背后的经济与心理原因。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <img src="https://picsum.photos/seed/japan3/800/400" alt="日本温泉文化" class="article-img">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>生活指南</span>
+                                <span>•</span>
+                                <span>2023-10-20</span>
+                            </div>
+                            <h2 class="article-title">入乡随俗：日本温泉文化的礼仪与禁忌</h2>
+                            <p class="article-excerpt">温泉是日本人放松身心的重要方式。对于初次接触的游客来说，了解入浴前的清洁流程和公共浴场的礼仪至关重要。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Sidebar -->
+                <aside>
+                    <div class="sidebar-widget">
+                        <h3 class="section-title" style="margin-bottom: 15px; border:none; padding:0;">热门排行</h3>
+                        <ul class="hot-list">
+                            <li>
+                                <a href="#">
+                                    <span>日本职场的“年功序列”制度</span>
+                                    <span class="hot-rank">1</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>为什么日本人喜欢吃生食？</span>
+                                    <span class="hot-rank">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>日本武士道的兴衰史</span>
+                                    <span class="hot-rank">3</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>便利店文化对日本人的影响</span>
+                                    <span class="hot-rank">4</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>日本动漫产业的经济效应</span>
+                                    <span class="hot-rank">5</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h3 class="section-title" style="margin-bottom: 15px; border:none; padding:0;">关注领域</h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            <span style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.85rem;">传统文化</span>
+                            <span style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.85rem;">饮食文化</span>
+                            <span style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.85rem;">职场文化</span>
+                            <span style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.85rem;">流行趋势</span>
+                            <span style="background:#eee; padding:5px 10px; border-radius:15px; font-size:0.85rem;">礼仪规范</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="section-title">栏目导航</div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <span class="category-icon">🏯</span>
+                    <div class="category-name">历史古迹</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">京都、奈良的历史遗迹探索</p>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🍱</span>
+                    <div class="category-name">美食地图</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">从寿司到拉面，味蕾的极致体验</p>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎌</span>
+                    <div class="category-name">节日庆典</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">花火大会与祗园祭的盛况</p>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎌</span>
+                    <div class="category-name">动漫文化</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">二次元文化如何影响现实生活</p>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎌</span>
+                    <div class="category-name">旅游攻略</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">实用签证与交通信息指南</p>
+                </div>
+                <div class="category-item">
+                    <span class="category-icon">🎌</span>
+                    <div class="category-name">职场生存</div>
+                    <p style="font-size:0.85rem; color:#666; margin-top:5px;">在日本工作的注意事项</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>jzjzjz日本人</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        这是一个专注于日本文化、社会现象及生活方式的资讯平台。我们希望通过客观的视角，帮助读者更深入地理解这个独特的邻邦。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门专题</h4>
+                    <ul>
+                        <li><a href="#">日本新年</a></li>
+                        <li><a href="#">樱花季全攻略</a></li>
+                        <li><a href="#">日本茶道</a></li>
+                        <li><a href="#">和服文化</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 jzjzjz日本人 版权所有.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('mobile-active');
+        }
+    </script>
+</body>
+</html>
