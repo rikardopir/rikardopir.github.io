@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="zetman超魔人官方网站，提供最新漫画章节、角色图鉴、剧情解析及同人作品分享。深入了解安倍昌弘与维纳斯的传奇故事。">
+    <meta name="keywords" content="zetman超魔人, 安倍昌弘, 维纳斯, 漫画, 热门漫画, 日本漫画, 动漫">
+    <title>zetman超魔人-安倍昌弘与维纳斯的传奇战斗与漫画作品</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --secondary-color: #ecf0f1;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f9f9f9;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/zetmanhero/1920/1080.jpg') center/cover no-repeat;
+            opacity: 0.4;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .hero-tag {
+            background-color: var(--accent-color);
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            text-align: justify;
+        }
+
+        .intro-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* Manga Chapters / Latest */
+        .chapters-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .chapter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-thumb {
+            height: 200px;
+            background-color: #ddd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .chapter-card:hover .card-thumb img {
+            transform: scale(1.05);
+        }
+
+        .chapter-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chapter-number {
+            color: var(--accent-color);
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .chapter-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .chapter-meta {
+            margin-top: auto;
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .read-btn {
+            margin-top: 15px;
+            text-align: center;
+            display: block;
+            padding: 8px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .read-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Characters Section */
+        .characters-section {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .char-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .char-card:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .char-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+        }
+
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .char-role {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--accent-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            display: none;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .nav-wrapper nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">zetman<span>超魔人</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#chapters">漫画章节</a></li>
+                    <li><a href="#characters">角色图鉴</a></li>
+                    <li><a href="#intro">作品简介</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <span class="hero-tag">热门漫画</span>
+                <h1>zetman超魔人</h1>
+                <p>安倍昌弘与维纳斯跨越宿命的战斗，探索人性、正义与毁灭的极致故事。</p>
+                <a href="#chapters" class="cta-button">立即阅读</a>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="intro" class="intro-section">
+            <div class="container intro-grid">
+                <div class="intro-text">
+                    <h2>作品简介</h2>
+                    <p><strong>zetman超魔人</strong>（Zetman）是由日本漫画家石森章太郎（原作）、朝基正士（作画）创作的科幻超级英雄题材漫画。故事讲述了拥有怪兽般力量的少年安倍昌弘与被称作“魔人”的神秘生物维纳斯之间错综复杂的关系。</p>
+                    <p>故事背景设定在近未来的东京，安倍昌弘原本只是一个有着悲惨过去的孤儿，直到他觉醒了体内的怪兽力量，被神秘组织“Genom”收留并改造，成为对抗其他“魔人”的武器。然而，随着剧情的发展，昌弘逐渐发现了自己的身世之谜，以及维纳斯存在的真正意义。</p>
+                    <p>这部作品不仅有着精彩的战斗场面，更深刻探讨了“什么是人类”、“什么是正义”以及“牺牲与救赎”等哲学命题，是石森章太郎系列作品中极具深度的一部。</p>
+                </div>
+                <div class="intro-image">
+                    <img src="https://picsum.photos/seed/zetmanintro/600/400.jpg" alt="zetman超魔人作品概念图">
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapters Section -->
+        <section id="chapters" class="chapters-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">最新章节</h2>
+                    <a href="#" style="color: var(--accent-color); font-weight: bold;">查看全部 ></a>
+                </div>
+                <div class="chapter-grid">
+                    <article class="chapter-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/zetman1/400/300.jpg" alt="zetman第1卷封面">
+                        </div>
+                        <div class="chapter-info">
+                            <span class="chapter-number">第1卷</span>
+                            <h3 class="chapter-title">觉醒</h3>
+                            <p class="chapter-meta">2023-10-15</p>
+                            <a href="#" class="read-btn">阅读漫画</a>
+                        </div>
+                    </article>
+                    <article class="chapter-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/zetman2/400/300.jpg" alt="zetman第2卷封面">
+                        </div>
+                        <div class="chapter-info">
+                            <span class="chapter-number">第2卷</span>
+                            <h3 class="chapter-title">魔人的诞生</h3>
+                            <p class="chapter-meta">2023-11-20</p>
+                            <a href="#" class="read-btn">阅读漫画</a>
+                        </div>
+                    </article>
+                    <article class="chapter-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/zetman3/400/300.jpg" alt="zetman第3卷封面">
+                        </div>
+                        <div class="chapter-info">
+                            <span class="chapter-number">第3卷</span>
+                            <h3 class="chapter-title">东京的崩坏</h3>
+                            <p class="chapter-meta">2023-12-05</p>
+                            <a href="#" class="read-btn">阅读漫画</a>
+                        </div>
+                    </article>
+                    <article class="chapter-card">
+                        <div class="card-thumb">
+                            <img src="https://picsum.photos/seed/zetman4/400/300.jpg" alt="zetman第4卷封面">
+                        </div>
+                        <div class="chapter-info">
+                            <span class="chapter-number">第4卷</span>
+                            <h3 class="chapter-title">真相的碎片</h3>
+                            <p class="chapter-meta">2024-01-10</p>
+                            <a href="#" class="read-btn">阅读漫画</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="characters-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">主要角色</h2>
+                </div>
+                <div class="char-grid">
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/abe/200/200.jpg" alt="安倍昌弘">
+                        </div>
+                        <h3 class="char-name">安倍昌弘</h3>
+                        <p class="char-role">主角 / zetman</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/venus/200/200.jpg" alt="维纳斯">
+                        </div>
+                        <h3 class="char-name">维纳斯</h3>
+                        <p class="char-role">魔人 / 伙伴</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/genom/200/200.jpg" alt="Genom">
+                        </div>
+                        <h3 class="char-name">Genom</h3>
+                        <p class="char-role">神秘组织</p>
+                    </div>
+                    <div class="char-card">
+                        <div class="char-avatar">
+                            <img src="https://picsum.photos/seed/zan/200/200.jpg" alt="万城目优">
+                        </div>
+                        <h3 class="char-name">万城目优</h3>
+                        <p class="char-role">刑警 / 猎魔人</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">zetman超魔人是由谁创作的？</div>
+                    <div class="faq-answer">本作由石森章太郎担任原作，朝基正士担任作画。石森章太郎是《假面骑士》系列的原作者，本作也被视为其精神续作之一。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">zetman超魔人什么时候开始连载的？</div>
+                    <div class="faq-answer">本作于1990年在讲谈社的《周刊少年Magazine》上开始连载，并连载至今（部分中断后重启），是一部长期连载作品。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">在哪里可以阅读zetman超魔人？</div>
+                    <div class="faq-answer">您可以在各大正版漫画阅读平台搜索“zetman超魔人”或“ゼットマン”进行阅读。支持正版是维护作者权益的最佳方式。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">zetman和假面骑士有什么关系？</div>
+                    <div class="faq-answer">虽然两者是不同的世界观，但zetman超魔人深受石森章太郎早期《假面骑士》系列的影响，在设定、人物性格以及悲剧英雄的色彩上有许多相似之处。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>zetman超魔人</h3>
+                    <p style="color: #bdc3c7; font-size: 14px;">关于安倍昌弘与维纳斯的传奇故事，一个关于爱与恨、正义与邪恶的永恒主题。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速导航</h3>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#chapters">章节列表</a></li>
+                        <li><a href="#characters">角色介绍</a></li>
+                        <li><a href="#intro">作品简介</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>相关链接</h3>
+                    <ul>
+                        <li><a href="#">石森章太郎作品集</a></li>
+                        <li><a href="#">假面骑士百科</a></li>
+                        <li><a href="#">漫画资讯站</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 zetman超魔人粉丝站. All Rights Reserved. 本站为粉丝非盈利性质展示页面。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement){
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                    
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
